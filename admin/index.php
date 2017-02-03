@@ -2,7 +2,7 @@
     require '../settings.php';
 ?><!DOCTYPE html>
 <html><head>
-    <title>Brieftaube - Admin</title>
+    <title>Helferlein - Admin</title>
     
     <meta charset="UTF-8">
     <meta name="author" content="Jan Kossick, jankossick@online.de">

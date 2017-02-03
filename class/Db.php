@@ -10,7 +10,7 @@ class Db {
                 Config::get()['dbServer'],
                 Config::get()['dbUser'],
                 Config::get()['dbPassword'],
-                'brieftaube',
+                Config::get()['dbName'],
                 Config::get()['dbPort']);
         self::$mysqli->query('SET NAMES "utf8"');
     }  

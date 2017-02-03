@@ -4,6 +4,9 @@
  *      pear install --alldeps Mail_Queue
  */
 
+// debuging
+ini_set('display_errors', 1);
+
 // no-cache
 header('Pragma: no-cache');
 header('Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate,'

@@ -4,17 +4,16 @@
     <?=_('Zur Zeit wird nur SMTP über <b>SSL</b> unterstützt.')?>
 </p>
 <?php
-$divider = '@---@';
+$divider = null;
 $configKeys = array(
     'webTitle' => _('Titel für die Webseite'),
     'webText' => _('Text für die Webseite'),
     $divider,
-    'mailSignature' => _('E-Mail-Signatur'),
-    $divider,
     'webUrl' => _('URL zur Seite'),
     $divider,
     'dbServer' => _('Datenbankserver'), 
-    'dbPort' => _('Datenbankport'), 
+    'dbPort' => _('Datenbankport'),
+    'dbName' => _('Datenbankname'),
     'dbUser' => _('Benutzername'), 
     'dbPassword' => _('Passwort'),
     $divider, 
@@ -22,7 +21,8 @@ $configKeys = array(
     'smtpPort' => _('SMTP-Port'), 
     'smtpUser' => _('Benutzername'), 
     'smtpPassword' => _('Passwort'),
-    'smtpFrom' => _('Antwortadresse')
+    'smtpFrom' => _('Antwortadresse'),
+    'mailSignature' => _('E-Mail-Signatur')
 );
 $message = '';
 switch(filter_input(INPUT_POST, 'action')) {
@@ -35,12 +35,8 @@ switch(filter_input(INPUT_POST, 'action')) {
         $message = _('Daten gespeichert.');
         break;
     case 'testSmtp':
-        foreach($configKeys as $k => $v) {
-            if($v == $divider) continue; // it's a divider
-            Config::set($k, filter_input(INPUT_POST, $k));
-        }
-        if(Brieftaube::send(Config::get()['smtpFrom'],
-                _('Brieftaube: Test der SMTP-Verbindung'),
+        if(Email::send(Config::get()['smtpFrom'],
+                _('Helferlein: Test der SMTP-Verbindung'),
                 _('Wenn diese E-Mail angekommen ist, ist die SMTP-Verbindung'
                         . ' korrekt eingerichtet. \o/'),
                 $error)) {
@@ -87,6 +83,6 @@ if(strlen($message)) {
 
 <form method="post">
     <button type="submit"><?=_('SMTP testen')?></button>
-    <span><?=_('Dies sendet eine Test-Nachricht an die im Feld <i>Antwortadresse</i> angegebene E-Mail-Adresse.')?></span>
+    <span><?=_('<b>Bitte vor dem Test <u>speichern</u>!</b> Dies sendet eine Test-Nachricht an die im Feld <i>Antwortadresse</i> angegebene E-Mail-Adresse.')?></span>
     <input type="hidden" name="action" value="testSmtp" />
 </form>
