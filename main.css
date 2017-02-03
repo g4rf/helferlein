@@ -1,0 +1,104 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+}
+
+body, span, p, td, input, button, textarea {
+    font-family: "Open Sans", sans-serif;
+    font-size:  0.9em;
+    color: #333;
+    text-align: justify;
+}
+
+table {
+    width: 100%;
+}
+
+table tr:nth-child(even) td {
+    background-color: #eee;
+}
+
+hr {
+    border: none;
+    border-top: solid 1px #ccc; 
+}
+
+form {
+    margin: 15px;
+}
+
+button {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+label {
+    display: block;
+    margin: 10px;
+}
+
+label span {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+}
+
+label input, label textarea {
+    width: 70%;
+}
+label textarea {
+    height: 150px;
+}
+
+.danger {
+    background-color: #f88;
+}
+.message {
+    font-weight: bold;
+    color: #000;
+    padding: 5px;
+    margin: 10px;
+    background-color: #cc5;
+    border: solid 1px #333;
+}
+
+.menu a {
+    margin-right: 10px;
+}
+
+#wrapper {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px #333;
+    border-top: none;
+    padding: 2%;
+    padding-top: 60px;
+    background: url(pic/header.png) no-repeat top right;
+    background-color: #fff;
+}
+
+#footer {
+    margin-top: 50px;
+    border-top: solid 1px #888;
+}
+#footer p {
+    color: #888;
+    font-size: 0.75em;
+}
+#footer a {
+    color: #888;
+}
+
+/*** users ***/
+tr.unconfirmed td {
+    color: #f55;
+}
+tr.muted td {
+    color: #888;
+}
+td form {
+    display: inline-block;
+    margin: 2px;
+}

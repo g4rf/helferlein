@@ -1,0 +1,18 @@
+{
+    "dbServer": "",
+    "dbPort": "",
+    "dbUser": "",
+    "dbPassword": "",
+    
+    "smtpServer": "",
+    "smtpPort": "",
+    "smtpUser": "",
+    "smtpPassword": "",
+    "smtpFrom": "",
+    
+    "mailSignature": "",
+    
+    "webTitle": "",
+    "webText": "",
+    "webUrl": ""
+}
